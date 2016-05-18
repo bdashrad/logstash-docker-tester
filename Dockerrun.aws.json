@@ -1,12 +1,18 @@
 {
   "AWSEBDockerrunVersion": "1",
-  "Image": {
-    "Name": "logstash",
-    "Update": "true"
-  },
   "Ports": [
     {
       "ContainerPort": "5000"
+    },
+    {
+      "ContainerPort": "5001"
     }
-  ]
+  ],
+  "Volumes": [
+    {
+      "HostDirectory": "/media/config",
+      "ContainerDirectory": "/etc/logstash/conf.d/"
+    }
+  ],
+  "Logging": "/media/logs"
 }
